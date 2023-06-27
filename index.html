@@ -25,7 +25,7 @@
     />
     <meta name="twitter:image:src" content="assets/images/share.jpeg" />
     <!-- End social share meta tags -->
-    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="./assets/css/grid.css" />
     <link rel="stylesheet" href="./assets/css/main.css" />
     <link rel="stylesheet" href="./assets/css/projects.css" />
@@ -91,43 +91,43 @@
         <div
           class="body__section body__section--case-study-items body__section--fade-up"
         >
-          
+          {% for post in site.posts %} {% if post.featured == true %}
           <a
-            href="projects/jv.png"
+            href=""
             rel="noopener"
             class="case-study-item case-study-item--hover case-study-item--"
           >
             <div class="case-study-item__img">
               <div class="case-study-item__img__image">
-                
-                <img src="projects/jv.png" alt="" aria-label="Read More" />
-                The Awesome 4 Part Comic Book that me and my team worked on AAD Course @ IIIT-H is out now.. The illustration were hand-made by me! Read now
+                {% if post.image %}
+                <img src="assets\images\6.jpg" alt="" aria-label="Read More" />
+                {% else %}
                 <video
                   muted="muted"
                   autoplay="autoplay"
                   loop="loop"
                   playsinline=""
                 >
-                  <source src="projects/stories.mov" type="video/mp4" />
+                  <source src="jvg.mov" type="video/mp4" />
                 </video>
-                janjanj
+                {% endif %}
               </div>
             </div>
             <div class="case-study-item__data">
               <div class="case-study-item__data--content">
                 <div class="case-study-item__meta type-white">
                   <span class="type-white"
-                    >24 Nov</span
+                    >{{ post.date | date_to_string }}</span
                   >
                 </div>
                 <div class="case-study-item__copy">
-                  <h2>Jekyll and Vandall Algorithms Comic Book.. Out Now!!</h2>
-                  <p>The Awesome 4 Part Comic Book that me and my team worked on AAD Course @ IIIT-H is out now.. The illustration were hand-made by me! Read now</p>
+                  <h2>{{post.title}}</h2>
+                  <p>{{post.description}}</p>
                 </div>
               </div>
             </div>
-          </a>sbj
-          jqjw
+          </a>
+          {% endif %} {% endfor %}
         </div>
       </div>
     </div>
@@ -137,7 +137,7 @@
           <div class="col-1 hidden-sm"></div>
           <div class="col-5">
             <li>
-              <a href="/blog" title="Blog" class="type-white"></a>
+              <a href="/blog" title="Blog" class="type-white">See all Posts</a>
             </li>
           </div>
           <div class="col-2 col-1-sm"></div>
@@ -151,7 +151,7 @@
           <div class="col-2">
             <li>
               <a
-                href="mailto:20951a0463@iare.ac.in"
+                href="mailto:"
                 title="Email"
                 target="_blank"
                 class="type-white"
@@ -180,7 +180,7 @@
             </li>
             <li>
               <a
-                href="https://instagram.com/s_t_a_a_r_k?igshid=ZDc4ODBmNjlmNQ=="
+                href=""
                 title="Instagram"
                 target="_blank"
                 class="type-white"
